@@ -1,0 +1,72 @@
+{% extends "layout.html"%}
+
+    {% block title %}
+    <title>StockGPT - Investing with Emotions</title>
+    {% endblock title %}
+
+    {% block content %}
+    <!-- Enter Stock Ticker -->
+    <form id="ticker-submission">
+        <div class="ticker-box-container">
+        <label for="ticker">Stock Ticker:</label>
+        <input type="text" id="ticker" name="ticker" placeholder="AAPL" required>
+        <button onclick="LoadCharts();">Submit</button>
+        </div>
+    </form>
+    <!-- End Enter Stock Ticker -->
+
+    <!-- Example Stocks -->
+    <h2>Example Stocks</h2>
+    <div class="example-stocks-container">
+        {% for stock in example_stocks %}
+             <div class="example-stock">
+               <img src= '{{url_for("static", filename=stock.img)}}' width="50" height="50"/>
+               <h3>Ticker: {{stock.ticker}} </h3>
+               <h3> Name: {{stock.name}} </h3>
+            </div>
+        {% endfor %}
+    </div>
+    <!-- End Example Stocks -->
+
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+      <div id="tradingview_9d7a9"></div>
+      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets</span></a> on TradingView</div>
+      <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    </div>
+
+    <script type="text/javascript">
+      const form = document.getElementById('ticker-submission');
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+      });
+
+      LoadCharts();
+      function LoadCharts(){
+          let symbol = document.getElementById('ticker').value;
+
+          if (symbol === ''){
+            symbol = 'AAPL';
+          }
+
+          new TradingView.widget(
+          {
+              "autosize": true,
+              "symbol": symbol,
+              "interval": "D",
+              "timezone": "Etc/UTC",
+              "theme": "dark",
+              "style": "1",
+              "locale": "en",
+              "toolbar_bg": "#f1f3f6",
+              "enable_publishing": false,
+              "withdateranges": true,
+              "allow_symbol_change": true,
+              "container_id": "tradingview_9d7a9"
+          }
+          );
+      }
+      </script>
+    <!-- TradingView Widget END -->
+    {% endblock content %}

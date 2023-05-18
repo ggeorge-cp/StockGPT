@@ -1,0 +1,67 @@
+body{
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, p{
+    font-family: Ariel, Helvetica, sans-serif;
+    color: black
+}
+
+.example-stocks-container{
+    width: 80%;
+    background-color: lightgrey;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 2%;
+}
+
+.example-stock{
+    display: inline-block;
+    text-align: center;
+    width: 25%;
+    margin-left: 5%;
+    margin-top: 1%;
+}
+
+#tradingview_9d7a9{
+    width: 100%;
+    height: 50vh;
+}
+
+.nav-container{
+    background-color: dimgrey;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.nav-container h1{
+    color: white;
+    font-family: Ariel, Helvetica, sans-serif;
+}
+
+.nav-container a{
+    text-decoration: none;
+    font-size: 20px;
+    font-family: Ariel, Helvetica, sans-serif;
+    color: white;
+    padding: 20px;
+}
+
+a:hover{
+    border-bottom: red 5px solid;
+}
+
+.ticker-box-container{
+    font-size: 25px;
+    font-family: Ariel, Helvetica, sans-serif;
+    padding-top: 25px;
+    padding-left: 20px;
+    padding-bottom: 5px;
+}
+
+.ticker-box-container input, button{
+    font-size: 25px;
+    font-family: Ariel, Helvetica, sans-serif;
+}

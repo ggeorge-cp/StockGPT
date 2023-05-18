@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/styles/styles.css')}}">
+      {% block title %}
+      {% endblock title %}
+  </head>
+  <body>
+      {% block nav %}
+      <div class="nav-container">
+      <h1>What is happening in the stock market?</h1>
+      <a href="{{url_for('app_blueprint.index')}}">Home</a>
+      <a href="{{url_for('app_blueprint.about')}}">About</a>
+      </div>
+      {% endblock nav %}
+
+      {% block content %}
+      {% endblock content %}
+  </body>
+</html>
